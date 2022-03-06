@@ -922,11 +922,9 @@ var WinningNumberForm = /*#__PURE__*/function (_Component) {
         _this.handleKeyupEvent(target, key);
       });
       this.addEvent('keydown', 'winning-number-form', function (event) {
-        var path = event.path,
-            key = event.key;
-        var target = path[1];
+        var key = event.key;
 
-        _this.handleKeydownEvent(target, key);
+        _this.handleKeydownEvent(key);
       });
       this.addEvent('click', 'winning-number-form', function (event) {
         var path = event.path;
@@ -951,20 +949,9 @@ var WinningNumberForm = /*#__PURE__*/function (_Component) {
   }, {
     key: "handleKeyupEvent",
     value: function handleKeyupEvent(target, key) {
-      var order = target.order;
-      if (key === 'Backspace' || key === 'Enter') return;
-
-      if (target.isFull() && order < _constants__WEBPACK_IMPORTED_MODULE_0__.LOTTO.COUNT) {
-        var nextInput = this.$inputs[order + 1];
-        nextInput.focus();
-      }
-    }
-  }, {
-    key: "handleKeydownEvent",
-    value: function handleKeydownEvent(target, key) {
       var order = target.order,
           length = target.length;
-      if (key !== 'Backspace' && key !== 'Enter') return;
+      if (key === 'Enter') return;
 
       if (length === 0 && order > 0 && key === 'Backspace') {
         var winningNumberList = this.$inputs.map(function (input) {
@@ -976,9 +963,16 @@ var WinningNumberForm = /*#__PURE__*/function (_Component) {
         return;
       }
 
-      if (key === 'Enter') {
-        this.handleEnter();
+      if (target.isFull() && order < _constants__WEBPACK_IMPORTED_MODULE_0__.LOTTO.COUNT) {
+        var nextInput = this.$inputs[order + 1];
+        nextInput.focus();
       }
+    }
+  }, {
+    key: "handleKeydownEvent",
+    value: function handleKeydownEvent(key) {
+      if (key !== 'Enter') return;
+      this.handleEnter();
     }
   }, {
     key: "handleEnter",
