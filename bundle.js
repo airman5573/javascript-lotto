@@ -12,6 +12,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _flux_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../flux/store */ "./src/js/flux/store.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
@@ -52,6 +53,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+
+
 var Component = /*#__PURE__*/function (_HTMLElement) {
   _inherits(Component, _HTMLElement);
 
@@ -91,7 +94,7 @@ var Component = /*#__PURE__*/function (_HTMLElement) {
         return;
       }
 
-      window.store.subscribe(this);
+      _flux_store__WEBPACK_IMPORTED_MODULE_0__["default"].instance.subscribe(this);
     }
   }, {
     key: "shouldSubscribe",
@@ -149,20 +152,14 @@ var Component = /*#__PURE__*/function (_HTMLElement) {
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _flux_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./flux/store */ "./src/js/flux/store.js");
-/* harmony import */ var _components_MoneyForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/MoneyForm */ "./src/js/components/MoneyForm.js");
-/* harmony import */ var _components_LottoList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/LottoList */ "./src/js/components/LottoList.js");
-/* harmony import */ var _components_LottoListToggle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/LottoListToggle */ "./src/js/components/LottoListToggle.js");
-/* harmony import */ var _components_LottoItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/LottoItem */ "./src/js/components/LottoItem.js");
+/* harmony import */ var _components_MoneyForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/MoneyForm */ "./src/js/components/MoneyForm.js");
+/* harmony import */ var _components_LottoList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/LottoList */ "./src/js/components/LottoList.js");
+/* harmony import */ var _components_LottoListToggle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/LottoListToggle */ "./src/js/components/LottoListToggle.js");
+/* harmony import */ var _components_LottoItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/LottoItem */ "./src/js/components/LottoItem.js");
+/* harmony import */ var _components_WinningNumberInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/WinningNumberInput */ "./src/js/components/WinningNumberInput.js");
 /* harmony import */ var _components_WinningNumberForm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/WinningNumberForm */ "./src/js/components/WinningNumberForm.js");
 /* harmony import */ var _components_StatisticsModal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/StatisticsModal */ "./src/js/components/StatisticsModal.js");
 /* harmony import */ var _css_index_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../css/index.css */ "./src/css/index.css");
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./constants */ "./src/js/constants.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
@@ -171,12 +168,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-
-
-
-var initialState = _objectSpread({}, _constants__WEBPACK_IMPORTED_MODULE_8__.INITIAL_STATE);
-
-window.store = new _flux_store__WEBPACK_IMPORTED_MODULE_0__["default"](initialState);
 window.addEventListener('DOMContentLoaded', function () {
   document.querySelector('#app').innerHTML = "\n    <h1 class=\"text-center mb-4\">\uD83C\uDFB1 \uD589\uC6B4\uC758 \uB85C\uB610</h1>\n    <money-form class=\"mb-7\"></money-form>\n    <lotto-list class=\"mb-6\"></lotto-list>\n    <winning-number-form></winning-number-form>\n    <statistics-modal></statistics-modal>\n  ";
 });
@@ -195,6 +186,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _abstracts_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../abstracts/component */ "./src/js/abstracts/component.js");
 /* harmony import */ var _images_lotto_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../images/lotto.png */ "./images/lotto.png");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../constants */ "./src/js/constants.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils */ "./src/js/utils.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -220,6 +213,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
+
 var LottoItem = /*#__PURE__*/function (_Component) {
   _inherits(LottoItem, _Component);
 
@@ -231,14 +226,19 @@ var LottoItem = /*#__PURE__*/function (_Component) {
     _classCallCheck(this, LottoItem);
 
     _this = _super.call(this);
-    _this.lottoNums = _this.getAttribute('data-lotto-nums');
+    _this.lottoNums = _this.getAttribute('data-lotto-nums').split(',');
+    _this.rank = (0,_utils__WEBPACK_IMPORTED_MODULE_3__.toInt)(_this.getAttribute('data-rank'), 0);
     return _this;
   }
 
   _createClass(LottoItem, [{
     key: "template",
-    value: function template(lottoNums) {
-      return "\n      <img src=".concat(_images_lotto_png__WEBPACK_IMPORTED_MODULE_1__["default"], " />").concat(lottoNums, "\n    ");
+    value: function template(lottoNums, rank) {
+      var numTemplate = lottoNums.map(function (num) {
+        return "<span class=\"lotto-ball ".concat(_constants__WEBPACK_IMPORTED_MODULE_2__.LOTTO_BALL_COLORS[num], "\">").concat(num, "</span>");
+      }).join('');
+      var rankTemplate = "<span class=\"rank\">\uD83C\uDFC6 ".concat(rank, "\uB4F1 \uB2F9\uCCA8!</span>");
+      return "\n      <img src=".concat(_images_lotto_png__WEBPACK_IMPORTED_MODULE_1__["default"], " />\n      ").concat(numTemplate, "\n      ").concat(this.rank > 0 ? rankTemplate : '', "\n    ");
     }
   }, {
     key: "shouldSubscribe",
@@ -248,7 +248,7 @@ var LottoItem = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      this.innerHTML = this.template(this.lottoNums);
+      this.innerHTML = this.template(this.lottoNums, this.rank);
     }
   }]);
 
@@ -272,6 +272,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _abstracts_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../abstracts/component */ "./src/js/abstracts/component.js");
 /* harmony import */ var _images_lotto_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../images/lotto.png */ "./images/lotto.png");
+/* harmony import */ var _flux_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../flux/store */ "./src/js/flux/store.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../constants */ "./src/js/constants.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils */ "./src/js/utils.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -297,6 +300,9 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
+
+
 var LottoList = /*#__PURE__*/function (_Component) {
   _inherits(LottoList, _Component);
 
@@ -311,25 +317,36 @@ var LottoList = /*#__PURE__*/function (_Component) {
   _createClass(LottoList, [{
     key: "template",
     value: // eslint-disable-next-line max-lines-per-function
-    function template(lottoList, lottoListVisibility) {
+    function template(_ref) {
+      var lottoList = _ref.lottoList,
+          lottoListVisibility = _ref.lottoListVisibility,
+          winningNumbers = _ref.winningNumbers;
       var lottoImages = !lottoListVisibility ? "<img src=\"".concat(_images_lotto_png__WEBPACK_IMPORTED_MODULE_1__["default"], "\" alt=\"lotto\"></img>").repeat(lottoList.length) : '';
       var lists = lottoListVisibility ? lottoList.map(function (lottoNums) {
-        return "<lotto-item data-lotto-nums=\"".concat(lottoNums.join(', '), "\"></lotto-item>");
+        var rank = winningNumbers ? (0,_utils__WEBPACK_IMPORTED_MODULE_4__.getRank)(lottoNums, winningNumbers) : 0;
+        return "<lotto-item data-rank=\"".concat(rank, "\" data-lotto-nums=\"").concat(lottoNums.join(','), "\"></lotto-item>");
       }).join('') : '';
       return "\n      <div class=\"lotto-list-container\">\n        <label>\uCD1D ".concat(lottoList.length, "\uAC1C\uB97C \uAD6C\uB9E4\uD558\uC600\uC2B5\uB2C8\uB2E4.</label>\n        <div class=\"lotto-images\">").concat(lottoImages, "</div>\n        <ul class=\"lotto-list\">").concat(lists, "</ul>\n      </div>\n      <div class=\"toggle-container\">\n      <label class=\"mb-3\">\uBC88\uD638 \uBCF4\uAE30</label>\n      <lotto-list-toggle class=\"d-flex justify-content-end\"></lotto-list-toggle>\n      </div>\n    ");
     }
   }, {
     key: "render",
     value: function render() {
-      var _window$store$getStat = window.store.getState(),
-          money = _window$store$getStat.money,
-          lottoList = _window$store$getStat.lottoList,
-          lottoListVisibility = _window$store$getStat.lottoListVisibility;
+      var _Store$instance$getSt = _flux_store__WEBPACK_IMPORTED_MODULE_2__["default"].instance.getState(),
+          lottoList = _Store$instance$getSt.lottoList,
+          lottoListVisibility = _Store$instance$getSt.lottoListVisibility,
+          winningNumbers = _Store$instance$getSt.winningNumbers;
 
       this.innerHTML = '';
 
-      if (money > 0) {
-        this.innerHTML = this.template(lottoList, lottoListVisibility);
+      if (lottoList.length > 0) {
+        var isFullfilled = winningNumbers.normal.every(function (num) {
+          return num !== _constants__WEBPACK_IMPORTED_MODULE_3__.WINNING_NUM_PLACEHOLDER && num > 0;
+        }) && winningNumbers.bonus !== _constants__WEBPACK_IMPORTED_MODULE_3__.WINNING_NUM_PLACEHOLDER;
+        this.innerHTML = this.template({
+          lottoList: lottoList,
+          lottoListVisibility: lottoListVisibility,
+          winningNumbers: isFullfilled ? winningNumbers : null
+        });
       }
     }
   }]);
@@ -355,6 +372,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants */ "./src/js/constants.js");
 /* harmony import */ var _flux_actionCreator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../flux/actionCreator */ "./src/js/flux/actionCreator.js");
 /* harmony import */ var _abstracts_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../abstracts/component */ "./src/js/abstracts/component.js");
+/* harmony import */ var _flux_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../flux/store */ "./src/js/flux/store.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -381,6 +399,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var LottoListToggle = /*#__PURE__*/function (_Component) {
   _inherits(LottoListToggle, _Component);
 
@@ -401,7 +420,7 @@ var LottoListToggle = /*#__PURE__*/function (_Component) {
     key: "setEvent",
     value: function setEvent() {
       this.addEvent('click', 'input', function (event) {
-        window.store.dispatch((0,_flux_actionCreator__WEBPACK_IMPORTED_MODULE_1__["default"])(_constants__WEBPACK_IMPORTED_MODULE_0__.ACTION.TOGGLE_LOTTO_LIST, event.target.checked));
+        _flux_store__WEBPACK_IMPORTED_MODULE_3__["default"].instance.dispatch((0,_flux_actionCreator__WEBPACK_IMPORTED_MODULE_1__["default"])(_constants__WEBPACK_IMPORTED_MODULE_0__.ACTION.TOGGLE_LOTTO_LIST, event.target.checked));
       });
     }
   }, {
@@ -412,8 +431,8 @@ var LottoListToggle = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _window$store$getStat = window.store.getState(),
-          lottoListVisibility = _window$store$getStat.lottoListVisibility;
+      var _Store$instance$getSt = _flux_store__WEBPACK_IMPORTED_MODULE_3__["default"].instance.getState(),
+          lottoListVisibility = _Store$instance$getSt.lottoListVisibility;
 
       var checked = lottoListVisibility ? 'checked' : '';
       this.innerHTML = this.template(checked);
@@ -442,8 +461,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _flux_actionCreator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../flux/actionCreator */ "./src/js/flux/actionCreator.js");
 /* harmony import */ var _abstracts_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../abstracts/component */ "./src/js/abstracts/component.js");
 /* harmony import */ var _validation_validators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../validation/validators */ "./src/js/validation/validators.js");
-/* harmony import */ var _validation_validation_error__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../validation/validation-error */ "./src/js/validation/validation-error.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils */ "./src/js/utils.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils */ "./src/js/utils.js");
+/* harmony import */ var _flux_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../flux/store */ "./src/js/flux/store.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -485,9 +504,22 @@ var MoneyForm = /*#__PURE__*/function (_Component) {
   }
 
   _createClass(MoneyForm, [{
+    key: "errorListTemplate",
+    value: function errorListTemplate(errorMessages) {
+      var errorItems = errorMessages.map(function (message) {
+        return "<li class=\"error-message\">".concat(message, "</li>");
+      }).join('\n');
+      return "<ul class=\"error-list\">".concat(errorItems, "</ul>");
+    } // eslint-disable-next-line max-lines-per-function
+
+  }, {
     key: "template",
-    value: function template() {
-      return "\n      <form>\n        <label class=\"mb-1\">\uAD6C\uC785\uD560 \uAE08\uC561\uC744 \uC785\uB825\uD574\uC8FC\uC138\uC694.</label>\n        <div class=\"d-flex\">\n          <input class=\"form-control mr-4\" placeholder=\"\uAE08\uC561\"></input>\n          <button class=\"btn btn-cyan\">\uAD6C\uC785</button>\n        </div>\n      </form>\n    ";
+    value: function template(money, errorMessages, lottoList) {
+      var disabledBtn = errorMessages.length > 0 || lottoList.length > 0 ? 'disabled' : '';
+      var disabledInput = lottoList.length > 0 ? 'disabled' : '';
+      var moneyWithComma = money.toLocaleString('ko-KR');
+      var value = moneyWithComma !== '0' ? moneyWithComma : '';
+      return "\n      <form>\n        <label class=\"mb-1\">\uAD6C\uC785\uD560 \uAE08\uC561\uC744 \uC785\uB825\uD574\uC8FC\uC138\uC694.</label>\n        <div class=\"d-flex mb-2\">\n          <input class=\"form-control mr-4\" ".concat(disabledInput, " value=\"").concat(value, "\" placeholder=\"\uAE08\uC561\"></input>\n          <button class=\"btn btn-cyan\" ").concat(disabledBtn, ">\uAD6C\uC785</button>\n        </div>\n        ").concat(errorMessages.length > 0 ? this.errorListTemplate(errorMessages) : '', "\n      </form>\n    ");
     }
   }, {
     key: "setEvent",
@@ -497,27 +529,69 @@ var MoneyForm = /*#__PURE__*/function (_Component) {
       this.addEvent('submit', 'form', function (event) {
         event.preventDefault();
 
-        var $moneyInput = _this.querySelector('input');
-
-        try {
-          _this.updateMoney($moneyInput.value);
-        } catch (e) {
-          (0,_utils__WEBPACK_IMPORTED_MODULE_5__.consoleErrorWithConditionalAlert)(e, _constants__WEBPACK_IMPORTED_MODULE_0__.VALIDATION_ERROR_NAME);
-        }
+        _this.handleSubmit();
       });
+      this.addEvent('input', 'input', function (event) {
+        _this.handleInput(event);
+      });
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit() {
+      this.purchaseLotto();
+    }
+  }, {
+    key: "getErrorMessages",
+    value: function getErrorMessages(money) {
+      var validationResults = (0,_validation_validators__WEBPACK_IMPORTED_MODULE_3__.validateMoney)(money);
+      var errorMessages = validationResults.reduce(function (errorList, _ref) {
+        var hasError = _ref.hasError,
+            errorMessage = _ref.errorMessage;
+        hasError && errorList.push(errorMessage);
+        return errorList;
+      }, []);
+      return errorMessages;
+    }
+  }, {
+    key: "handleInput",
+    value: function handleInput(event) {
+      var target = event.target;
+      var onlyNumber = (0,_utils__WEBPACK_IMPORTED_MODULE_4__.transformToNumber)(target.value);
+      this.updateMoney(onlyNumber);
+      var errorMessages = onlyNumber > 0 ? this.getErrorMessages(onlyNumber) : [];
+      this.updateErrorMessages(errorMessages);
     }
   }, {
     key: "updateMoney",
     value: function updateMoney(money) {
-      var _validateMoney = (0,_validation_validators__WEBPACK_IMPORTED_MODULE_3__.validateMoney)(money),
-          hasError = _validateMoney.hasError,
-          errorMessage = _validateMoney.errorMessage;
+      _flux_store__WEBPACK_IMPORTED_MODULE_5__["default"].instance.dispatch((0,_flux_actionCreator__WEBPACK_IMPORTED_MODULE_1__["default"])(_constants__WEBPACK_IMPORTED_MODULE_0__.ACTION.SET_MONEY, money));
+    }
+  }, {
+    key: "purchaseLotto",
+    value: function purchaseLotto() {
+      _flux_store__WEBPACK_IMPORTED_MODULE_5__["default"].instance.dispatch((0,_flux_actionCreator__WEBPACK_IMPORTED_MODULE_1__["default"])(_constants__WEBPACK_IMPORTED_MODULE_0__.ACTION.PURCHASE_LOTTO));
+    }
+  }, {
+    key: "updateErrorMessages",
+    value: function updateErrorMessages(errorMessages) {
+      _flux_store__WEBPACK_IMPORTED_MODULE_5__["default"].instance.dispatch((0,_flux_actionCreator__WEBPACK_IMPORTED_MODULE_1__["default"])(_constants__WEBPACK_IMPORTED_MODULE_0__.ACTION.SET_MONEY_FORM_ERROR_MESSAGES, errorMessages));
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _Store$instance$getSt = _flux_store__WEBPACK_IMPORTED_MODULE_5__["default"].instance.getState(),
+          money = _Store$instance$getSt.money,
+          lottoList = _Store$instance$getSt.lottoList,
+          moneyFormErrorMessages = _Store$instance$getSt.moneyFormErrorMessages;
 
-      if (hasError) {
-        throw new _validation_validation_error__WEBPACK_IMPORTED_MODULE_4__["default"](errorMessage);
+      this.innerHTML = this.template(money, moneyFormErrorMessages, lottoList);
+      this.$button = this.querySelector('button');
+      this.$input = this.querySelector('input');
+
+      if (lottoList.length === 0) {
+        this.$input.focus();
+        this.$input.setSelectionRange(-1, -1); // cursor를 마지막으로 이동시킨다
       }
-
-      window.store.dispatch((0,_flux_actionCreator__WEBPACK_IMPORTED_MODULE_1__["default"])(_constants__WEBPACK_IMPORTED_MODULE_0__.ACTION.PURCHASE_LOTTO, money));
     }
   }]);
 
@@ -543,6 +617,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _flux_actionCreator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../flux/actionCreator */ "./src/js/flux/actionCreator.js");
 /* harmony import */ var _abstracts_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../abstracts/component */ "./src/js/abstracts/component.js");
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils */ "./src/js/utils.js");
+/* harmony import */ var _flux_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../flux/store */ "./src/js/flux/store.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -550,6 +625,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _get() { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(arguments.length < 3 ? target : receiver); } return desc.value; }; } return _get.apply(this, arguments); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -571,6 +650,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var StatisticsModal = /*#__PURE__*/function (_Component) {
   _inherits(StatisticsModal, _Component);
 
@@ -583,9 +663,23 @@ var StatisticsModal = /*#__PURE__*/function (_Component) {
   }
 
   _createClass(StatisticsModal, [{
+    key: "connectedCallback",
+    value: function connectedCallback() {
+      var _this = this;
+
+      _get(_getPrototypeOf(StatisticsModal.prototype), "connectedCallback", this).call(this); // modal close when press esc key
+
+
+      document.addEventListener('keyup', function (event) {
+        if (event.key !== 'Escape') return;
+
+        _this.closeModal();
+      });
+    } // eslint-disable-next-line max-lines-per-function
+
+  }, {
     key: "template",
-    value: // eslint-disable-next-line max-lines-per-function
-    function template(winningCounts, earningsRate) {
+    value: function template(winningCounts, earningsRate) {
       return "\n      <div class=\"modal modal-statistics\">\n        <div class=\"modal-dialog\">\n          <div class=\"modal-content\">\n            <div class=\"modal-header\">\n              <h2 class=\"modal-title\">\uD83C\uDFC6 \uB2F9\uCCA8 \uD1B5\uACC4 \uD83C\uDFC6</h2>\n              <button class=\"btn-close\">\u2715</button>\n            </div>\n            <div class=\"modal-body\">\n              <table>\n                <thead>\n                  <tr>\n                    <th>\uC77C\uCE58 \uAC1C\uC218</th>\n                    <th>\uB2F9\uCCA8\uAE08</th>\n                    <th>\uB2F9\uCCA8 \uAC1C\uC218</th>\n                  </tr>\n                </thead>\n                <tbody>\n                  ".concat(this.rowsTemplate(winningCounts), "\n                </tbody>\n              </table>\n              <div class=\"earnings-rate\">\uB2F9\uC2E0\uC758 \uCD1D \uC218\uC775\uB960\uC740 ").concat(earningsRate, "%\uC785\uB2C8\uB2E4.</div>\n            </div>\n            <div class=\"modal-footer\">\n              <button class=\"btn btn-cyan btn-reset\">\uB2E4\uC2DC \uC2DC\uC791\uD558\uAE30</button>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"modal-backdrop\"></div>\n    ");
     }
   }, {
@@ -616,37 +710,37 @@ var StatisticsModal = /*#__PURE__*/function (_Component) {
   }, {
     key: "setEvent",
     value: function setEvent() {
-      var _this = this;
+      var _this2 = this;
 
       this.addEvent('click', '.btn-close', function () {
-        _this.closeModal();
+        _this2.closeModal();
       });
       this.addEvent('click', '.modal-backdrop', function () {
-        _this.closeModal();
+        _this2.closeModal();
       });
       this.addEvent('click', '.btn-reset', function () {
-        _this.reset();
+        _this2.reset();
       });
     }
   }, {
     key: "closeModal",
     value: function closeModal() {
       document.querySelector('body').classList.remove('modal-open');
-      window.store.dispatch((0,_flux_actionCreator__WEBPACK_IMPORTED_MODULE_1__["default"])(_constants__WEBPACK_IMPORTED_MODULE_0__.ACTION.TOGGLE_STATISTICS_MODAL, false));
+      _flux_store__WEBPACK_IMPORTED_MODULE_4__["default"].instance.dispatch((0,_flux_actionCreator__WEBPACK_IMPORTED_MODULE_1__["default"])(_constants__WEBPACK_IMPORTED_MODULE_0__.ACTION.TOGGLE_STATISTICS_MODAL, false));
     }
   }, {
     key: "reset",
     value: function reset() {
-      window.store.dispatch((0,_flux_actionCreator__WEBPACK_IMPORTED_MODULE_1__["default"])(_constants__WEBPACK_IMPORTED_MODULE_0__.ACTION.RESET));
+      _flux_store__WEBPACK_IMPORTED_MODULE_4__["default"].instance.dispatch((0,_flux_actionCreator__WEBPACK_IMPORTED_MODULE_1__["default"])(_constants__WEBPACK_IMPORTED_MODULE_0__.ACTION.RESET));
       this.closeModal();
     }
   }, {
     key: "render",
     value: function render() {
-      var _window$store$getStat = window.store.getState(),
-          statisticsModalVisibility = _window$store$getStat.statisticsModalVisibility,
-          winningNumbers = _window$store$getStat.winningNumbers,
-          lottoList = _window$store$getStat.lottoList;
+      var _Store$instance$getSt = _flux_store__WEBPACK_IMPORTED_MODULE_4__["default"].instance.getState(),
+          statisticsModalVisibility = _Store$instance$getSt.statisticsModalVisibility,
+          winningNumbers = _Store$instance$getSt.winningNumbers,
+          lottoList = _Store$instance$getSt.lottoList;
 
       if (!statisticsModalVisibility) {
         this.innerHTML = '';
@@ -681,9 +775,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants */ "./src/js/constants.js");
 /* harmony import */ var _flux_actionCreator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../flux/actionCreator */ "./src/js/flux/actionCreator.js");
 /* harmony import */ var _abstracts_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../abstracts/component */ "./src/js/abstracts/component.js");
-/* harmony import */ var _validation_validators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../validation/validators */ "./src/js/validation/validators.js");
-/* harmony import */ var _validation_validation_error__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../validation/validation-error */ "./src/js/validation/validation-error.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils */ "./src/js/utils.js");
+/* harmony import */ var _flux_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../flux/store */ "./src/js/flux/store.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils */ "./src/js/utils.js");
+/* harmony import */ var _validation_validators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../validation/validators */ "./src/js/validation/validators.js");
+/* harmony import */ var _validation_validation_error__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../validation/validation-error */ "./src/js/validation/validation-error.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
@@ -718,6 +813,8 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+/* eslint-disable max-lines-per-function */
+
 
 
 
@@ -737,67 +834,215 @@ var WinningNumberForm = /*#__PURE__*/function (_Component) {
   }
 
   _createClass(WinningNumberForm, [{
-    key: "template",
-    value: // eslint-disable-next-line max-lines-per-function
-    function template(_ref) {
+    key: "inputTemplate",
+    value: function inputTemplate(_ref) {
       var normal = _ref.normal,
           bonus = _ref.bonus;
-      var normalInputs = normal.length === _constants__WEBPACK_IMPORTED_MODULE_0__.LOTTO.COUNT ? normal.map(function (num) {
-        return "<input class=\"form-control\" value=\"".concat(num, "\" maxlength=\"2\"/>");
-      }).join('') : "<input class=\"form-control\" maxlength=\"2\"/>".repeat(_constants__WEBPACK_IMPORTED_MODULE_0__.LOTTO.COUNT);
-      var bonusInput = bonus && bonus > 0 ? "<input class=\"form-control\" value=\"".concat(bonus, "\" maxlength=\"2\"/>") : "<input class=\"form-control\" maxlength=\"2\"/>";
-      return "\n      <form>\n        <label>\uC9C0\uB09C \uC8FC \uB2F9\uCCA8\uBC88\uD638 6\uAC1C\uC640 \uBCF4\uB108\uC2A4 \uBC88\uD638 1\uAC1C\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694.</label>\n        <div class=\"wrapper\">\n          <fieldset>\n            <label>\uB2F9\uCCA8 \uBC88\uD638</label>\n            <div class=\"d-flex\">\n              ".concat(normalInputs, "\n            </div>\n          </fieldset>\n          <fieldset>\n            <label>\uBCF4\uB108\uC2A4 \uBC88\uD638</label>\n            ").concat(bonusInput, "\n          </fieldset>\n        </div>\n        <button class=\"btn btn-cyan w-100\">\uACB0\uACFC \uD655\uC778\uD558\uAE30</button>\n      </form>\n    ");
+      var winningNumbers = [].concat(_toConsumableArray(normal), [bonus]);
+      var duplicateNumIndexArrList = (0,_utils__WEBPACK_IMPORTED_MODULE_4__.duplicateIndexs)(winningNumbers.filter(function (num) {
+        return num !== _constants__WEBPACK_IMPORTED_MODULE_0__.WINNING_NUM_PLACEHOLDER;
+      }));
+      var hasFocusInput = false;
+      var inputs = winningNumbers.map(function (num, index) {
+        var val = num;
+        var isFocus = false;
+
+        if (!hasFocusInput) {
+          isFocus = num === _constants__WEBPACK_IMPORTED_MODULE_0__.WINNING_NUM_PLACEHOLDER;
+          hasFocusInput = isFocus;
+        }
+
+        var focus = isFocus ? 'data-is-focus' : '';
+        var groupIndex = (0,_utils__WEBPACK_IMPORTED_MODULE_4__.findGroupIndex)(duplicateNumIndexArrList, index);
+        var duplicateErrorClassName = groupIndex !== null ? _constants__WEBPACK_IMPORTED_MODULE_0__.DUPLICATE_ERROR_CLASS_NAMES[groupIndex] : '';
+        var invalidRangeErrorClassName = num !== _constants__WEBPACK_IMPORTED_MODULE_0__.WINNING_NUM_PLACEHOLDER && (0,_validation_validators__WEBPACK_IMPORTED_MODULE_5__.checkInvalidRangeOfWinningNumberList)([num]).hasError ? _constants__WEBPACK_IMPORTED_MODULE_0__.INVALID_RANGE_ERROR_CLASS_NAME : '';
+        var classNames = [duplicateErrorClassName, invalidRangeErrorClassName].join(' ');
+        return "<winning-number-input class=\"".concat(classNames, "\" data-order=\"").concat(index, "\" ").concat(focus, " data-value=\"").concat(val, "\"></winning-number-input>");
+      });
+      return {
+        normalInputs: inputs.slice(0, inputs.length - 1).join('\n'),
+        bonusInput: inputs[inputs.length - 1]
+      };
+    }
+  }, {
+    key: "errorListTemplate",
+    value: function errorListTemplate(_ref2) {
+      var normal = _ref2.normal,
+          bonus = _ref2.bonus;
+      // 아무것도 입력 안했는데 오류를 뿜으면 안되니까 PLACEHODER는 제거해주고 유효성 검사를 한다.
+      var winningNumberList = [].concat(_toConsumableArray(normal), [bonus]).filter(function (num) {
+        return num !== _constants__WEBPACK_IMPORTED_MODULE_0__.WINNING_NUM_PLACEHOLDER;
+      });
+      var validationResults = (0,_validation_validators__WEBPACK_IMPORTED_MODULE_5__.validateWinningNumberList)(winningNumberList);
+      var errorItems = validationResults.map(function (_ref3) {
+        var hasError = _ref3.hasError,
+            errorMessage = _ref3.errorMessage;
+        return hasError ? "<li class=\"error-message\">".concat(errorMessage, "</li>") : '';
+      }).join('\n');
+      return "<ul class=\"error-list\">".concat(errorItems, "</ul>");
+    }
+  }, {
+    key: "buttonTemplate",
+    value: function buttonTemplate(_ref4) {
+      var normal = _ref4.normal,
+          bonus = _ref4.bonus;
+      var winningNumberList = [].concat(_toConsumableArray(normal), [bonus]);
+      var hasError = (0,_validation_validators__WEBPACK_IMPORTED_MODULE_5__.validateWinningNumberList)(winningNumberList).some(function (result) {
+        return result.hasError;
+      });
+      var disabled = hasError ? 'disabled' : '';
+      return "<div class=\"btn-wrapper\"><button type=\"button\" class=\"btn btn-cyan w-100\" ".concat(disabled, ">\uACB0\uACFC \uD655\uC778\uD558\uAE30</button></div>");
+    }
+  }, {
+    key: "template",
+    value: function template(winningNumbers) {
+      var _this$inputTemplate = this.inputTemplate(winningNumbers),
+          normalInputs = _this$inputTemplate.normalInputs,
+          bonusInput = _this$inputTemplate.bonusInput;
+
+      return "\n      <form>\n        <label>\uC9C0\uB09C \uC8FC \uB2F9\uCCA8\uBC88\uD638 6\uAC1C\uC640 \uBCF4\uB108\uC2A4 \uBC88\uD638 1\uAC1C\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694.</label>\n        <div class=\"wrapper\">\n          <fieldset>\n            <label>\uB2F9\uCCA8 \uBC88\uD638</label>\n            <div class=\"d-flex\">\n              ".concat(normalInputs, "\n            </div>\n          </fieldset>\n          <fieldset>\n            <label>\uBCF4\uB108\uC2A4 \uBC88\uD638</label>\n            ").concat(bonusInput, "\n          </fieldset>\n          ").concat(this.errorListTemplate(winningNumbers), "\n        </div>\n        ").concat(this.buttonTemplate(winningNumbers), "\n      </form>\n    ");
     }
   }, {
     key: "setEvent",
     value: function setEvent() {
       var _this = this;
 
-      this.addEvent('submit', 'form', function (event) {
-        event.preventDefault();
-
-        var $winningNumberInputs = _toConsumableArray(_this.querySelectorAll('input'));
-
-        var winningNumbers = $winningNumberInputs.map(function (input) {
-          return input.value;
+      this.addEvent('change', 'winning-number-form', function () {
+        var winningNumberList = _this.$inputs.map(function (input) {
+          return input.valueAsNumber;
         });
 
-        try {
-          _this.pickLottoNumbers(winningNumbers);
-        } catch (e) {
-          (0,_utils__WEBPACK_IMPORTED_MODULE_5__.consoleErrorWithConditionalAlert)(e, _constants__WEBPACK_IMPORTED_MODULE_0__.VALIDATION_ERROR_NAME);
-        }
+        _this.submitLottoNumbers(winningNumberList);
+      });
+      this.addEvent('keyup', 'winning-number-form', function (event) {
+        var path = event.path,
+            key = event.key;
+        var target = path[1];
+
+        _this.handleKeyupEvent(target, key);
+      });
+      this.addEvent('keydown', 'winning-number-form', function (event) {
+        var path = event.path,
+            key = event.key;
+        var target = path[1];
+
+        _this.handleKeydownEvent(target, key);
+      });
+      this.addEvent('click', 'winning-number-form', function (event) {
+        var path = event.path;
+        var target = path[1];
+        if (target.tagName.toLowerCase() !== 'winning-number-input') return;
+        var order = target.order;
+
+        var winningNumberList = _this.$inputs.map(function (input) {
+          return input.order === order ? _constants__WEBPACK_IMPORTED_MODULE_0__.WINNING_NUM_PLACEHOLDER : input.valueAsNumber;
+        });
+
+        _this.submitLottoNumbers(winningNumberList);
+      });
+      this.addEvent('click', 'winning-number-form', function (_ref5) {
+        var target = _ref5.target;
+        if (target.tagName.toLowerCase() !== 'button') return;
+
+        _this.handleEnter(); // 버튼 누른거는 Enter친것과 같은 행위이다
+
       });
     }
   }, {
-    key: "pickLottoNumbers",
-    value: function pickLottoNumbers(winningNumbers) {
-      var _validateWinningNumbe = (0,_validation_validators__WEBPACK_IMPORTED_MODULE_3__.validateWinningNumbers)(winningNumbers),
-          hasError = _validateWinningNumbe.hasError,
-          errorMessage = _validateWinningNumbe.errorMessage;
+    key: "handleKeyupEvent",
+    value: function handleKeyupEvent(target, key) {
+      var order = target.order;
+      if (key === 'Backspace' || key === 'Enter') return;
 
-      if (hasError) {
-        throw new _validation_validation_error__WEBPACK_IMPORTED_MODULE_4__["default"](errorMessage);
+      if (target.isFull() && order < _constants__WEBPACK_IMPORTED_MODULE_0__.LOTTO.COUNT) {
+        var nextInput = this.$inputs[order + 1];
+        nextInput.focus();
+      }
+    }
+  }, {
+    key: "handleKeydownEvent",
+    value: function handleKeydownEvent(target, key) {
+      var order = target.order,
+          length = target.length;
+      if (key !== 'Backspace' && key !== 'Enter') return;
+
+      if (length === 0 && order > 0 && key === 'Backspace') {
+        var winningNumberList = this.$inputs.map(function (input) {
+          if (input.order === target.order - 1) return _constants__WEBPACK_IMPORTED_MODULE_0__.WINNING_NUM_PLACEHOLDER; // 방금 지운 input의 이전 input도 지워준다
+
+          return input.valueAsNumber;
+        });
+        this.submitLottoNumbers(winningNumberList);
+        return;
       }
 
-      window.store.dispatch((0,_flux_actionCreator__WEBPACK_IMPORTED_MODULE_1__["default"])(_constants__WEBPACK_IMPORTED_MODULE_0__.ACTION.SET_WINNING_NUMBERS, {
-        normal: winningNumbers.slice(0, winningNumbers.length - 1).map(Number),
-        bonus: Number(winningNumbers[winningNumbers.length - 1])
+      if (key === 'Enter') {
+        this.handleEnter();
+      }
+    }
+  }, {
+    key: "handleEnter",
+    value: function handleEnter() {
+      var winningNumberList = this.$inputs.map(function (input) {
+        return input.valueAsNumber;
+      });
+
+      try {
+        this.showStatisticsModal(winningNumberList);
+      } catch (e) {
+        this.submitLottoNumbers(winningNumberList);
+      }
+    }
+  }, {
+    key: "handleMouseEnterOnButton",
+    value: function handleMouseEnterOnButton() {
+      var winningNumberList = this.$inputs.map(function ($input) {
+        return $input.valueAsNumber;
+      });
+
+      if (winningNumberList.every(function (num) {
+        return num > 0;
+      })) {
+        document.activeElement.blur(); // chnage이벤트가 발생하면서 state가 업데이트된다
+      }
+    }
+  }, {
+    key: "submitLottoNumbers",
+    value: function submitLottoNumbers(winningNumberList) {
+      _flux_store__WEBPACK_IMPORTED_MODULE_3__["default"].instance.dispatch((0,_flux_actionCreator__WEBPACK_IMPORTED_MODULE_1__["default"])(_constants__WEBPACK_IMPORTED_MODULE_0__.ACTION.SET_WINNING_NUMBERS, {
+        normal: winningNumberList.slice(0, winningNumberList.length - 1),
+        bonus: winningNumberList[winningNumberList.length - 1]
       }));
-      window.store.dispatch((0,_flux_actionCreator__WEBPACK_IMPORTED_MODULE_1__["default"])(_constants__WEBPACK_IMPORTED_MODULE_0__.ACTION.TOGGLE_STATISTICS_MODAL, true));
+    }
+  }, {
+    key: "showStatisticsModal",
+    value: function showStatisticsModal(winningNumberList) {
+      var hasError = (0,_validation_validators__WEBPACK_IMPORTED_MODULE_5__.validateWinningNumberList)(winningNumberList).some(function (result) {
+        return result.hasError;
+      });
+
+      if (hasError) {
+        throw new _validation_validation_error__WEBPACK_IMPORTED_MODULE_6__["default"](errorMessage);
+      }
+
+      this.submitLottoNumbers(winningNumberList);
+      _flux_store__WEBPACK_IMPORTED_MODULE_3__["default"].instance.dispatch((0,_flux_actionCreator__WEBPACK_IMPORTED_MODULE_1__["default"])(_constants__WEBPACK_IMPORTED_MODULE_0__.ACTION.TOGGLE_STATISTICS_MODAL, true));
     }
   }, {
     key: "render",
     value: function render() {
-      var _window$store$getStat = window.store.getState(),
-          money = _window$store$getStat.money,
-          winningNumbers = _window$store$getStat.winningNumbers;
+      var _Store$instance$getSt = _flux_store__WEBPACK_IMPORTED_MODULE_3__["default"].instance.getState(),
+          lottoList = _Store$instance$getSt.lottoList,
+          winningNumbers = _Store$instance$getSt.winningNumbers;
 
-      console.log('winningNumbers : ', winningNumbers);
       this.innerHTML = '';
 
-      if (money > 0) {
+      if (lottoList.length > 0) {
         this.innerHTML = this.template(winningNumbers);
+        this.$inputs = _toConsumableArray(this.querySelectorAll('winning-number-input')); // addEvent가 작동하지 않아서 이렇게 event handler를 property로 직접 넣어준다.
+
+        this.$btnWrapper = this.querySelector('.btn-wrapper');
+        this.$btnWrapper.onmouseenter = this.handleMouseEnterOnButton.bind(this);
       }
     }
   }]);
@@ -807,6 +1052,134 @@ var WinningNumberForm = /*#__PURE__*/function (_Component) {
 
 customElements.define('winning-number-form', WinningNumberForm);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (WinningNumberForm);
+
+/***/ }),
+
+/***/ "./src/js/components/WinningNumberInput.js":
+/*!*************************************************!*\
+  !*** ./src/js/components/WinningNumberInput.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _abstracts_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../abstracts/component */ "./src/js/abstracts/component.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants */ "./src/js/constants.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils */ "./src/js/utils.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var WinningNumberInput = /*#__PURE__*/function (_Component) {
+  _inherits(WinningNumberInput, _Component);
+
+  var _super = _createSuper(WinningNumberInput);
+
+  function WinningNumberInput() {
+    var _this;
+
+    _classCallCheck(this, WinningNumberInput);
+
+    _this = _super.call(this);
+    _this.order = (0,_utils__WEBPACK_IMPORTED_MODULE_2__.toInt)(_this.getAttribute('data-order'));
+    _this.valueAttr = _this.getAttribute('data-value');
+    _this.isFocus = _this.getAttribute('data-is-focus') !== null;
+    _this.maxLength = 2;
+    return _this;
+  }
+
+  _createClass(WinningNumberInput, [{
+    key: "valueAsNumber",
+    get: function get() {
+      return (0,_utils__WEBPACK_IMPORTED_MODULE_2__.toInt)(this.value, _constants__WEBPACK_IMPORTED_MODULE_1__.WINNING_NUM_PLACEHOLDER);
+    }
+  }, {
+    key: "value",
+    get: function get() {
+      return this.$input.value;
+    }
+  }, {
+    key: "length",
+    get: function get() {
+      return this.value.length;
+    }
+  }, {
+    key: "focus",
+    value: function focus() {
+      this.$input.focus();
+    }
+  }, {
+    key: "template",
+    value: function template(value, maxLength) {
+      return "<input class=\"form-control\" value=\"".concat(value, "\" maxlength=\"").concat(maxLength, "\" />");
+    }
+  }, {
+    key: "setEvent",
+    value: function setEvent() {
+      this.addEvent('input', 'input', function (event) {
+        var target = event.target; // 0이상의 정수만 허용한다
+        // 복붙 및 드레그를 허용하지 않는다
+
+        target.value = target.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');
+      });
+    }
+  }, {
+    key: "shouldSubscribe",
+    value: function shouldSubscribe() {
+      return false;
+    }
+  }, {
+    key: "isFull",
+    value: function isFull() {
+      return this.length >= this.maxLength;
+    }
+  }, {
+    key: "clear",
+    value: function clear() {
+      this.$input.value = _constants__WEBPACK_IMPORTED_MODULE_1__.WINNING_NUM_PLACEHOLDER;
+      this.$input.backgroundColor = 'white';
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      this.innerHTML = this.template(this.valueAttr, this.maxLength);
+      this.$input = this.querySelector('input');
+
+      if (this.isFocus) {
+        this.$input.focus();
+      }
+    }
+  }]);
+
+  return WinningNumberInput;
+}(_abstracts_component__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+customElements.define('winning-number-input', WinningNumberInput);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (WinningNumberInput);
 
 /***/ }),
 
@@ -821,24 +1194,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ACTION": () => (/* binding */ ACTION),
 /* harmony export */   "ERROR_MESSAGE": () => (/* binding */ ERROR_MESSAGE),
 /* harmony export */   "LOTTO": () => (/* binding */ LOTTO),
+/* harmony export */   "WINNING_NUM_PLACEHOLDER": () => (/* binding */ WINNING_NUM_PLACEHOLDER),
 /* harmony export */   "INITIAL_STATE": () => (/* binding */ INITIAL_STATE),
-/* harmony export */   "VALIDATION_ERROR_NAME": () => (/* binding */ VALIDATION_ERROR_NAME)
+/* harmony export */   "VALIDATION_ERROR_NAME": () => (/* binding */ VALIDATION_ERROR_NAME),
+/* harmony export */   "DUPLICATE_ERROR_CLASS_NAMES": () => (/* binding */ DUPLICATE_ERROR_CLASS_NAMES),
+/* harmony export */   "INVALID_RANGE_ERROR_CLASS_NAME": () => (/* binding */ INVALID_RANGE_ERROR_CLASS_NAME),
+/* harmony export */   "LOTTO_BALL_COLORS": () => (/* binding */ LOTTO_BALL_COLORS)
 /* harmony export */ });
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 var ACTION = {
+  SET_MONEY: 'money',
   PURCHASE_LOTTO: 'purchase-lotto',
+  SET_MONEY_FORM_ERROR_MESSAGES: 'set-money-form-error-messages',
   TOGGLE_LOTTO_LIST: 'toggle-lotto-list',
   SET_WINNING_NUMBERS: 'set-winning-numbers',
   TOGGLE_STATISTICS_MODAL: 'toggle-statistics-modal',
   RESET: 'reset'
 };
 var ERROR_MESSAGE = {
-  EMPTY_MONEY: '금액을 입력해 주세요!',
-  NOT_INTEGER_MONEY: '정수만 입력해 주세요!',
-  UNDER_MIN_MONEY: '천원 이상 입력해 주세요!',
+  OVER_MAX_MONEY: '십만원 이하로 입력해 주세요',
   NOT_DIVIDED_BY_THOUSAND: '천 단위로 입력해 주세요!',
-  EMPTY_WINNING_NUMBERS: '모든 당첨 번호를 입력해 주세요!',
-  NOT_INTEGER_WINNING_NUMBER: '정수만 입력해 주세요!',
-  NOT_IN_VALID_WINNING_NUMBER_RANGE: '모든 값을 1 ~ 45 사이로 입력해 주세요!',
+  INVALID_WINNING_NUMBER_RANGE: '모든 값을 1 ~ 45 사이로 입력해 주세요!',
   DUPLICATE_WINNING_NUMBERS: '서로 다른 당첨 번호를 입력해 주세요!'
 };
 var LOTTO = {
@@ -848,19 +1235,25 @@ var LOTTO = {
   },
   COUNT: 6,
   PRICE: 1000,
+  MAX_PURCHASEABLE_COUNT: 100,
   PRIZE_MONEY: [0, 2000000000, 30000000, 1500000, 50000, 5000]
 };
+var WINNING_NUM_PLACEHOLDER = '';
 var INITIAL_STATE = {
   money: 0,
+  moneyFormErrorMessages: [],
   lottoList: [],
   lottoListVisibility: false,
   winningNumbers: {
-    normal: [],
-    bonus: null
+    normal: Array(6).fill(WINNING_NUM_PLACEHOLDER),
+    bonus: WINNING_NUM_PLACEHOLDER
   },
   statisticsModalVisibility: false
 };
 var VALIDATION_ERROR_NAME = 'ValidationError';
+var DUPLICATE_ERROR_CLASS_NAMES = ['duplicate-error-1', 'duplicate-error-2', 'duplicate-error-3'];
+var INVALID_RANGE_ERROR_CLASS_NAME = 'invalid-range-error';
+var LOTTO_BALL_COLORS = [].concat(_toConsumableArray(Array(11).fill('orange')), _toConsumableArray(Array(10).fill('blue')), _toConsumableArray(Array(10).fill('red')), _toConsumableArray(Array(10).fill('gray')), _toConsumableArray(Array(5).fill('green')));
 
 /***/ }),
 
@@ -924,10 +1317,13 @@ function reducer(state, _ref) {
 
   var newState = _objectSpread({}, state);
 
-  if (type === _constants__WEBPACK_IMPORTED_MODULE_0__.ACTION.PURCHASE_LOTTO) {
+  if (type === _constants__WEBPACK_IMPORTED_MODULE_0__.ACTION.SET_MONEY) {
     newState.money = payload;
-    var lottoList = generateLottoList(payload);
+  } else if (type === _constants__WEBPACK_IMPORTED_MODULE_0__.ACTION.PURCHASE_LOTTO) {
+    var lottoList = generateLottoList(state.money);
     newState.lottoList = lottoList;
+  } else if (type === _constants__WEBPACK_IMPORTED_MODULE_0__.ACTION.SET_MONEY_FORM_ERROR_MESSAGES) {
+    newState.moneyFormErrorMessages = payload;
   } else if (type === _constants__WEBPACK_IMPORTED_MODULE_0__.ACTION.TOGGLE_LOTTO_LIST) {
     newState.lottoListVisibility = payload;
   } else if (type === _constants__WEBPACK_IMPORTED_MODULE_0__.ACTION.SET_WINNING_NUMBERS) {
@@ -953,7 +1349,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _reducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./reducer */ "./src/js/flux/reducer.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants */ "./src/js/constants.js");
+/* harmony import */ var _reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reducer */ "./src/js/flux/reducer.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -964,6 +1365,8 @@ function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedec
 
 function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classPrivateFieldGet(receiver, privateMap) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get"); return _classApplyDescriptorGet(receiver, descriptor); }
 
 function _classApplyDescriptorGet(receiver, descriptor) { if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
@@ -973,6 +1376,8 @@ function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _
 function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
 
 function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
+
+/* eslint-disable no-underscore-dangle */
 
 
 
@@ -994,7 +1399,14 @@ var Store = /*#__PURE__*/function () {
       value: {}
     });
 
+    if (Store._instance) {
+      // eslint-disable-next-line no-constructor-return
+      return Store._instance;
+    }
+
     _classPrivateFieldSet(this, _state, initialState);
+
+    Store._instance = this;
   }
 
   _createClass(Store, [{
@@ -1010,16 +1422,27 @@ var Store = /*#__PURE__*/function () {
   }, {
     key: "dispatch",
     value: function dispatch(action) {
-      _classPrivateFieldSet(this, _state, (0,_reducer__WEBPACK_IMPORTED_MODULE_0__["default"])(this.getState(), action));
+      _classPrivateFieldSet(this, _state, (0,_reducer__WEBPACK_IMPORTED_MODULE_1__["default"])(this.getState(), action));
 
       _classPrivateFieldGet(this, _subscribers).forEach(function (subscriber) {
         subscriber.notify();
       });
     }
+  }], [{
+    key: "instance",
+    get: function get() {
+      if (!Store._instance) {
+        Store._instance = new Store(_objectSpread({}, _constants__WEBPACK_IMPORTED_MODULE_0__.INITIAL_STATE));
+      }
+
+      return Store._instance;
+    }
   }]);
 
   return Store;
 }();
+
+_defineProperty(Store, "_instance", null);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Store);
 
@@ -1038,7 +1461,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "pickNumberInRange": () => (/* binding */ pickNumberInRange),
 /* harmony export */   "pickUniqueNumbersInRange": () => (/* binding */ pickUniqueNumbersInRange),
 /* harmony export */   "intersect": () => (/* binding */ intersect),
-/* harmony export */   "consoleErrorWithConditionalAlert": () => (/* binding */ consoleErrorWithConditionalAlert)
+/* harmony export */   "consoleErrorWithConditionalAlert": () => (/* binding */ consoleErrorWithConditionalAlert),
+/* harmony export */   "sum": () => (/* binding */ sum),
+/* harmony export */   "toInt": () => (/* binding */ toInt),
+/* harmony export */   "duplicateIndexs": () => (/* binding */ duplicateIndexs),
+/* harmony export */   "findGroupIndex": () => (/* binding */ findGroupIndex),
+/* harmony export */   "getRank": () => (/* binding */ getRank),
+/* harmony export */   "transformToNumber": () => (/* binding */ transformToNumber)
 /* harmony export */ });
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
@@ -1086,10 +1515,9 @@ var pickUniqueNumbersInRange = function pickUniqueNumbersInRange(startInclusive,
 var intersect = function intersect(a, b) {
   var setA = new Set(a);
   var setB = new Set(b);
-  var intersection = new Set(_toConsumableArray(setA).filter(function (x) {
+  return _toConsumableArray(setA).filter(function (x) {
     return setB.has(x);
-  }));
-  return Array.from(intersection);
+  });
 };
 var consoleErrorWithConditionalAlert = function consoleErrorWithConditionalAlert(error, errorNameForAlert) {
   console.error(error);
@@ -1097,6 +1525,50 @@ var consoleErrorWithConditionalAlert = function consoleErrorWithConditionalAlert
   if (error.name === errorNameForAlert) {
     alert(error.message);
   }
+};
+var sum = function sum(arr) {
+  return arr.reduce(function (acc, cur) {
+    return acc + cur;
+  }, 0);
+};
+var toInt = function toInt(str) {
+  var defaultNum = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+  var val = parseInt(str, 10);
+  return !Number.isNaN(val) ? val : defaultNum;
+};
+var duplicateIndexs = function duplicateIndexs(arr) {
+  var uniqueArr = _toConsumableArray(new Set(arr));
+
+  return uniqueArr.reduce(function (duplicateArr, currentUniqueVal) {
+    var result = arr.reduce(function (acc, cur, index) {
+      currentUniqueVal === cur && acc.push(index);
+      return acc;
+    }, []);
+    result.length > 0 && duplicateArr.push(result);
+    return duplicateArr;
+  }, []).filter(function (indexes) {
+    return indexes.length > 1;
+  });
+};
+var findGroupIndex = function findGroupIndex(twoDemensionalArr, val) {
+  for (var i = 0; i < twoDemensionalArr.length; i += 1) {
+    if (twoDemensionalArr[i].includes(val)) {
+      return i;
+    }
+  }
+
+  return null;
+};
+var getRank = function getRank(lottoNums, winningNumbers) {
+  var normal = winningNumbers.normal,
+      bonus = winningNumbers.bonus;
+  var rank = 0;
+  var count = intersect(lottoNums, normal).length;
+  if (count === 6) rank = 1;else if (count === 5 && lottoNums.includes(bonus)) rank = 2;else if (count === 5) rank = 3;else if (count === 4) rank = 4;else if (count === 3) rank = 5;
+  return rank;
+};
+var transformToNumber = function transformToNumber(str) {
+  return toInt(str.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1'), 0);
 };
 
 /***/ }),
@@ -1199,62 +1671,62 @@ var ValidationResult = /*#__PURE__*/_createClass(function ValidationResult(hasEr
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "isPositiveInteger": () => (/* binding */ isPositiveInteger),
+/* harmony export */   "checkOverMaxMoney": () => (/* binding */ checkOverMaxMoney),
+/* harmony export */   "checkNotDevidedByThousandMoney": () => (/* binding */ checkNotDevidedByThousandMoney),
 /* harmony export */   "validateMoney": () => (/* binding */ validateMoney),
-/* harmony export */   "validateWinningNumbers": () => (/* binding */ validateWinningNumbers)
+/* harmony export */   "checkDuplicateOfWinningNumberList": () => (/* binding */ checkDuplicateOfWinningNumberList),
+/* harmony export */   "checkInvalidRangeOfWinningNumberList": () => (/* binding */ checkInvalidRangeOfWinningNumberList),
+/* harmony export */   "validateWinningNumberList": () => (/* binding */ validateWinningNumberList)
 /* harmony export */ });
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants */ "./src/js/constants.js");
-/* harmony import */ var _validation_result__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./validation-result */ "./src/js/validation/validation-result.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils */ "./src/js/utils.js");
+/* harmony import */ var _validation_result__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./validation-result */ "./src/js/validation/validation-result.js");
 
 
 
-var isEmptyStr = function isEmptyStr(str) {
-  return str.trim() === '';
+var isPositiveInteger = function isPositiveInteger(num) {
+  return /^[0-9]+$/g.test(num) && (0,_utils__WEBPACK_IMPORTED_MODULE_1__.toInt)(num, 0) !== 0;
 };
+var checkOverMaxMoney = function checkOverMaxMoney(money) {
+  if ((0,_utils__WEBPACK_IMPORTED_MODULE_1__.toInt)(money, 10) > _constants__WEBPACK_IMPORTED_MODULE_0__.LOTTO.PRICE * _constants__WEBPACK_IMPORTED_MODULE_0__.LOTTO.MAX_PURCHASEABLE_COUNT) {
+    return new _validation_result__WEBPACK_IMPORTED_MODULE_2__["default"](true, _constants__WEBPACK_IMPORTED_MODULE_0__.ERROR_MESSAGE.OVER_MAX_MONEY);
+  }
 
-var isNumber = function isNumber(num) {
-  return /^-?[0-9]+$/g.test(num);
+  return new _validation_result__WEBPACK_IMPORTED_MODULE_2__["default"](false);
 };
-
-var validateMoney = function validateMoney(money) {
-  if (isEmptyStr(money)) {
-    return new _validation_result__WEBPACK_IMPORTED_MODULE_1__["default"](true, _constants__WEBPACK_IMPORTED_MODULE_0__.ERROR_MESSAGE.EMPTY_MONEY);
-  }
-
-  if (!isNumber(money)) {
-    return new _validation_result__WEBPACK_IMPORTED_MODULE_1__["default"](true, _constants__WEBPACK_IMPORTED_MODULE_0__.ERROR_MESSAGE.NOT_INTEGER_MONEY);
-  }
-
-  if (parseInt(money, 10) < 1000) {
-    return new _validation_result__WEBPACK_IMPORTED_MODULE_1__["default"](true, _constants__WEBPACK_IMPORTED_MODULE_0__.ERROR_MESSAGE.UNDER_MIN_MONEY);
-  }
-
+var checkNotDevidedByThousandMoney = function checkNotDevidedByThousandMoney(money) {
   if (money % 1000) {
-    return new _validation_result__WEBPACK_IMPORTED_MODULE_1__["default"](true, _constants__WEBPACK_IMPORTED_MODULE_0__.ERROR_MESSAGE.NOT_DIVIDED_BY_THOUSAND);
+    return new _validation_result__WEBPACK_IMPORTED_MODULE_2__["default"](true, _constants__WEBPACK_IMPORTED_MODULE_0__.ERROR_MESSAGE.NOT_DIVIDED_BY_THOUSAND);
   }
 
-  return new _validation_result__WEBPACK_IMPORTED_MODULE_1__["default"](false);
-}; // eslint-disable-next-line max-lines-per-function
+  return new _validation_result__WEBPACK_IMPORTED_MODULE_2__["default"](false);
+};
+var validateMoney = function validateMoney(money) {
+  return [checkOverMaxMoney(money), checkNotDevidedByThousandMoney(money)];
+};
+var checkDuplicateOfWinningNumberList = function checkDuplicateOfWinningNumberList(numbers) {
+  var hasError = new Set(numbers).size !== numbers.length;
 
-var validateWinningNumbers = function validateWinningNumbers(numbers) {
-  for (var i = 0; i < numbers.length; i += 1) {
-    if (isEmptyStr(numbers[i])) {
-      return new _validation_result__WEBPACK_IMPORTED_MODULE_1__["default"](true, _constants__WEBPACK_IMPORTED_MODULE_0__.ERROR_MESSAGE.EMPTY_WINNING_NUMBERS);
-    }
-
-    if (!isNumber(numbers[i])) {
-      return new _validation_result__WEBPACK_IMPORTED_MODULE_1__["default"](true, _constants__WEBPACK_IMPORTED_MODULE_0__.ERROR_MESSAGE.NOT_INTEGER_WINNING_NUMBER);
-    }
-
-    if (numbers[i] < _constants__WEBPACK_IMPORTED_MODULE_0__.LOTTO.RANGE.MIN || numbers[i] > _constants__WEBPACK_IMPORTED_MODULE_0__.LOTTO.RANGE.MAX) {
-      return new _validation_result__WEBPACK_IMPORTED_MODULE_1__["default"](true, _constants__WEBPACK_IMPORTED_MODULE_0__.ERROR_MESSAGE.NOT_IN_VALID_WINNING_NUMBER_RANGE);
-    }
+  if (hasError) {
+    return new _validation_result__WEBPACK_IMPORTED_MODULE_2__["default"](true, _constants__WEBPACK_IMPORTED_MODULE_0__.ERROR_MESSAGE.DUPLICATE_WINNING_NUMBERS);
   }
 
-  if (new Set(numbers).size !== numbers.length) {
-    return new _validation_result__WEBPACK_IMPORTED_MODULE_1__["default"](true, _constants__WEBPACK_IMPORTED_MODULE_0__.ERROR_MESSAGE.DUPLICATE_WINNING_NUMBERS);
+  return new _validation_result__WEBPACK_IMPORTED_MODULE_2__["default"](false);
+};
+var checkInvalidRangeOfWinningNumberList = function checkInvalidRangeOfWinningNumberList(numbers) {
+  var hasError = numbers.some(function (num) {
+    return !isPositiveInteger(num) || num > _constants__WEBPACK_IMPORTED_MODULE_0__.LOTTO.RANGE.MAX || num < _constants__WEBPACK_IMPORTED_MODULE_0__.LOTTO.RANGE.MIN;
+  });
+
+  if (hasError) {
+    return new _validation_result__WEBPACK_IMPORTED_MODULE_2__["default"](true, _constants__WEBPACK_IMPORTED_MODULE_0__.ERROR_MESSAGE.INVALID_WINNING_NUMBER_RANGE);
   }
 
-  return new _validation_result__WEBPACK_IMPORTED_MODULE_1__["default"](false);
+  return new _validation_result__WEBPACK_IMPORTED_MODULE_2__["default"](false);
+};
+var validateWinningNumberList = function validateWinningNumberList(numbers) {
+  return [checkInvalidRangeOfWinningNumberList(numbers), checkDuplicateOfWinningNumberList(numbers)];
 };
 
 /***/ }),
@@ -1330,7 +1802,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "fieldset {\n  padding: 0;\n  margin: 0;\n  border: none;\n}\n\n.form-label {\n  display: inline-block;\n  margin-bottom: 4px;\n  font-size: 15px;\n  line-height: 24px;\n  letter-spacing: 0.5px;\n}\n\n.form-control {\n  display: block;\n  width: 100%;\n  padding: 8px 8px 4px;\n  border: 1px solid var(--gray-900);\n  border-radius: 4px;\n  font-weight: normal;\n  font-size: 15px;\n  line-height: 24px;\n  letter-spacing: 0.5px;\n}\n\n.form-control.submitted {\n  background-color: var(--gray-800);\n}\n\n.form-control:disabled {\n  background-color: var(--gray-800);\n  cursor: not-allowed;\n}\n\n.form-control:focus {\n  background-color: white !important;\n}\n\n::placeholder {\n  color: var(--gray-900);\n  opacity: 1; /* Firefox */\n}\n", "",{"version":3,"sources":["webpack://./src/css/form.css"],"names":[],"mappings":"AAAA;EACE,UAAU;EACV,SAAS;EACT,YAAY;AACd;;AAEA;EACE,qBAAqB;EACrB,kBAAkB;EAClB,eAAe;EACf,iBAAiB;EACjB,qBAAqB;AACvB;;AAEA;EACE,cAAc;EACd,WAAW;EACX,oBAAoB;EACpB,iCAAiC;EACjC,kBAAkB;EAClB,mBAAmB;EACnB,eAAe;EACf,iBAAiB;EACjB,qBAAqB;AACvB;;AAEA;EACE,iCAAiC;AACnC;;AAEA;EACE,iCAAiC;EACjC,mBAAmB;AACrB;;AAEA;EACE,kCAAkC;AACpC;;AAEA;EACE,sBAAsB;EACtB,UAAU,EAAE,YAAY;AAC1B","sourcesContent":["fieldset {\n  padding: 0;\n  margin: 0;\n  border: none;\n}\n\n.form-label {\n  display: inline-block;\n  margin-bottom: 4px;\n  font-size: 15px;\n  line-height: 24px;\n  letter-spacing: 0.5px;\n}\n\n.form-control {\n  display: block;\n  width: 100%;\n  padding: 8px 8px 4px;\n  border: 1px solid var(--gray-900);\n  border-radius: 4px;\n  font-weight: normal;\n  font-size: 15px;\n  line-height: 24px;\n  letter-spacing: 0.5px;\n}\n\n.form-control.submitted {\n  background-color: var(--gray-800);\n}\n\n.form-control:disabled {\n  background-color: var(--gray-800);\n  cursor: not-allowed;\n}\n\n.form-control:focus {\n  background-color: white !important;\n}\n\n::placeholder {\n  color: var(--gray-900);\n  opacity: 1; /* Firefox */\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "fieldset {\n  padding: 0;\n  margin: 0;\n  border: none;\n}\n\n.form-label {\n  display: inline-block;\n  margin-bottom: 4px;\n  font-size: 15px;\n  line-height: 24px;\n  letter-spacing: 0.5px;\n}\n\n.form-control {\n  display: block;\n  width: 100%;\n  padding: 8px 8px 4px;\n  border: 1px solid var(--gray-900);\n  border-radius: 4px;\n  font-weight: normal;\n  font-size: 15px;\n  line-height: 24px;\n  letter-spacing: 0.5px;\n}\n\n.form-control.submitted {\n  background-color: var(--gray-800);\n}\n\n.form-control:disabled {\n  background-color: var(--gray-800);\n  cursor: not-allowed;\n}\n\n.form-control:focus {\n  background-color: white !important;\n}\n\n::placeholder {\n  color: var(--gray-900);\n  opacity: 1; /* Firefox */\n}\n\n.form-control.error {\n  background-color: red;\n}", "",{"version":3,"sources":["webpack://./src/css/form.css"],"names":[],"mappings":"AAAA;EACE,UAAU;EACV,SAAS;EACT,YAAY;AACd;;AAEA;EACE,qBAAqB;EACrB,kBAAkB;EAClB,eAAe;EACf,iBAAiB;EACjB,qBAAqB;AACvB;;AAEA;EACE,cAAc;EACd,WAAW;EACX,oBAAoB;EACpB,iCAAiC;EACjC,kBAAkB;EAClB,mBAAmB;EACnB,eAAe;EACf,iBAAiB;EACjB,qBAAqB;AACvB;;AAEA;EACE,iCAAiC;AACnC;;AAEA;EACE,iCAAiC;EACjC,mBAAmB;AACrB;;AAEA;EACE,kCAAkC;AACpC;;AAEA;EACE,sBAAsB;EACtB,UAAU,EAAE,YAAY;AAC1B;;AAEA;EACE,qBAAqB;AACvB","sourcesContent":["fieldset {\n  padding: 0;\n  margin: 0;\n  border: none;\n}\n\n.form-label {\n  display: inline-block;\n  margin-bottom: 4px;\n  font-size: 15px;\n  line-height: 24px;\n  letter-spacing: 0.5px;\n}\n\n.form-control {\n  display: block;\n  width: 100%;\n  padding: 8px 8px 4px;\n  border: 1px solid var(--gray-900);\n  border-radius: 4px;\n  font-weight: normal;\n  font-size: 15px;\n  line-height: 24px;\n  letter-spacing: 0.5px;\n}\n\n.form-control.submitted {\n  background-color: var(--gray-800);\n}\n\n.form-control:disabled {\n  background-color: var(--gray-800);\n  cursor: not-allowed;\n}\n\n.form-control:focus {\n  background-color: white !important;\n}\n\n::placeholder {\n  color: var(--gray-900);\n  opacity: 1; /* Firefox */\n}\n\n.form-control.error {\n  background-color: red;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1383,7 +1855,7 @@ ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_typhography_css__
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_switch_css__WEBPACK_IMPORTED_MODULE_9__["default"]);
 ___CSS_LOADER_EXPORT___.i(_node_modules_css_loader_dist_cjs_js_modal_css__WEBPACK_IMPORTED_MODULE_10__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n  width: 100%;\n  height: 100%;\n  background-color: var(--gray-500);\n}\n\n#app {\n  display: flex;\n  flex-direction: column;\n  width: 414px;\n  margin: 56px auto 0;\n  padding: 52px 16px 39px;\n  border: 1px solid var(--gray-700);\n  border-radius: 4px;\n  background-color: white;\n}\n\n.w-100 {\n  width: 100%;\n}\n\nul {\n  margin: 0;\n  list-style: none;\n  padding: 0;\n}\n\nlabel {\n  display: block;\n  margin-bottom: 8px;\n  font-size: 15px;\n  line-height: 24px;\n  letter-spacing: 0.5px;\n}\n\nlotto-list {\n  display: flex;\n}\n\nlotto-list > .lotto-list-container {\n  flex: 1;\n}\n\nlotto-list .lotto-images img {\n  margin-right: 8px;\n}\n\nlotto-list > .lotto-list-container label {\n  display: block;\n  margin-bottom: 8px;\n}\n\nlotto-list > .toggle-container {\n}\n\nlotto-list lotto-item {\n  display: flex;\n  align-items: center;\n}\n\nlotto-list lotto-item img {\n  margin-right: 8px;\n}\n\nlotto-list-toggle {\n}\n\nwinning-number-form > form {\n  display: flex;\n  flex-direction: column;\n}\n\nwinning-number-form label {\n  display: block;\n  margin-bottom: 8px;\n}\n\nwinning-number-form input.form-control {\n  width: 34px;\n  height: 36px;\n  padding: 0;\n  margin-right: 8px;\n  text-align: center;\n}\n\nwinning-number-form .wrapper {\n  display: flex;\n  margin-bottom: 24px;\n}\n\nwinning-number-form fieldset {\n  flex: 1;\n}\n\nwinning-number-form fieldset:nth-child(2) {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n}\n\nstatistics-modal .modal-dialog {\n  width: 350px;\n  height: 500px;\n  margin: 100px auto 0 auto;\n}\n\nstatistics-modal table {\n  border-collapse: collapse;\n  width: 100%;\n  margin-bottom: 16px;\n}\n\nstatistics-modal table th,\nstatistics-modal table td {\n  border-top: 1px solid #DCDCDC;\n  border-bottom: 1px solid #DCDCDC;\n  padding: 8px 0;\n  font-weight: 600;\n  font-size: 15px;\n  line-height: 24px;\n  letter-spacing: 0.5px;\n}\n\nstatistics-modal table td {\n  font-weight: 400;\n}\n\nstatistics-modal .earnings-rate {\n  font-weight: 600;\n  font-size: 15px;\n  line-height: 24px;\n  text-align: center;\n  letter-spacing: 0.5px;\n  margin-bottom: 32px;\n}\n\nstatistics-modal .btn-reset {\n  width: 152px;\n}\n", "",{"version":3,"sources":["webpack://./src/css/index.css"],"names":[],"mappings":"AAUA;EACE,WAAW;EACX,YAAY;EACZ,iCAAiC;AACnC;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,YAAY;EACZ,mBAAmB;EACnB,uBAAuB;EACvB,iCAAiC;EACjC,kBAAkB;EAClB,uBAAuB;AACzB;;AAEA;EACE,WAAW;AACb;;AAEA;EACE,SAAS;EACT,gBAAgB;EAChB,UAAU;AACZ;;AAEA;EACE,cAAc;EACd,kBAAkB;EAClB,eAAe;EACf,iBAAiB;EACjB,qBAAqB;AACvB;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,OAAO;AACT;;AAEA;EACE,iBAAiB;AACnB;;AAEA;EACE,cAAc;EACd,kBAAkB;AACpB;;AAEA;AACA;;AAEA;EACE,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,iBAAiB;AACnB;;AAEA;AACA;;AAEA;EACE,aAAa;EACb,sBAAsB;AACxB;;AAEA;EACE,cAAc;EACd,kBAAkB;AACpB;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,UAAU;EACV,iBAAiB;EACjB,kBAAkB;AACpB;;AAEA;EACE,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,OAAO;AACT;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,qBAAqB;AACvB;;AAEA;EACE,YAAY;EACZ,aAAa;EACb,yBAAyB;AAC3B;;AAEA;EACE,yBAAyB;EACzB,WAAW;EACX,mBAAmB;AACrB;;AAEA;;EAEE,6BAA6B;EAC7B,gCAAgC;EAChC,cAAc;EACd,gBAAgB;EAChB,eAAe;EACf,iBAAiB;EACjB,qBAAqB;AACvB;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,gBAAgB;EAChB,eAAe;EACf,iBAAiB;EACjB,kBAAkB;EAClB,qBAAqB;EACrB,mBAAmB;AACrB;;AAEA;EACE,YAAY;AACd","sourcesContent":["@import './normalize.css';\n@import './root.css';\n@import './spacing.css';\n@import './btn.css';\n@import './flex.css';\n@import './form.css';\n@import './typhography.css';\n@import './switch.css';\n@import './modal.css';\n\nbody {\n  width: 100%;\n  height: 100%;\n  background-color: var(--gray-500);\n}\n\n#app {\n  display: flex;\n  flex-direction: column;\n  width: 414px;\n  margin: 56px auto 0;\n  padding: 52px 16px 39px;\n  border: 1px solid var(--gray-700);\n  border-radius: 4px;\n  background-color: white;\n}\n\n.w-100 {\n  width: 100%;\n}\n\nul {\n  margin: 0;\n  list-style: none;\n  padding: 0;\n}\n\nlabel {\n  display: block;\n  margin-bottom: 8px;\n  font-size: 15px;\n  line-height: 24px;\n  letter-spacing: 0.5px;\n}\n\nlotto-list {\n  display: flex;\n}\n\nlotto-list > .lotto-list-container {\n  flex: 1;\n}\n\nlotto-list .lotto-images img {\n  margin-right: 8px;\n}\n\nlotto-list > .lotto-list-container label {\n  display: block;\n  margin-bottom: 8px;\n}\n\nlotto-list > .toggle-container {\n}\n\nlotto-list lotto-item {\n  display: flex;\n  align-items: center;\n}\n\nlotto-list lotto-item img {\n  margin-right: 8px;\n}\n\nlotto-list-toggle {\n}\n\nwinning-number-form > form {\n  display: flex;\n  flex-direction: column;\n}\n\nwinning-number-form label {\n  display: block;\n  margin-bottom: 8px;\n}\n\nwinning-number-form input.form-control {\n  width: 34px;\n  height: 36px;\n  padding: 0;\n  margin-right: 8px;\n  text-align: center;\n}\n\nwinning-number-form .wrapper {\n  display: flex;\n  margin-bottom: 24px;\n}\n\nwinning-number-form fieldset {\n  flex: 1;\n}\n\nwinning-number-form fieldset:nth-child(2) {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n}\n\nstatistics-modal .modal-dialog {\n  width: 350px;\n  height: 500px;\n  margin: 100px auto 0 auto;\n}\n\nstatistics-modal table {\n  border-collapse: collapse;\n  width: 100%;\n  margin-bottom: 16px;\n}\n\nstatistics-modal table th,\nstatistics-modal table td {\n  border-top: 1px solid #DCDCDC;\n  border-bottom: 1px solid #DCDCDC;\n  padding: 8px 0;\n  font-weight: 600;\n  font-size: 15px;\n  line-height: 24px;\n  letter-spacing: 0.5px;\n}\n\nstatistics-modal table td {\n  font-weight: 400;\n}\n\nstatistics-modal .earnings-rate {\n  font-weight: 600;\n  font-size: 15px;\n  line-height: 24px;\n  text-align: center;\n  letter-spacing: 0.5px;\n  margin-bottom: 32px;\n}\n\nstatistics-modal .btn-reset {\n  width: 152px;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\n  width: 100%;\n  height: 100%;\n  background-color: var(--gray-500);\n}\n\n#app {\n  display: flex;\n  flex-direction: column;\n  width: 414px;\n  margin: 56px auto 0;\n  padding: 52px 16px 39px;\n  border: 1px solid var(--gray-700);\n  border-radius: 4px;\n  background-color: white;\n}\n\n.w-100 {\n  width: 100%;\n}\n\nul {\n  margin: 0;\n  list-style: none;\n  padding: 0;\n}\n\nlabel {\n  display: block;\n  margin-bottom: 8px;\n  font-size: 15px;\n  line-height: 24px;\n  letter-spacing: 0.5px;\n}\n\n.error-list {\n  font-size: 14px;\n}\n\n.error-list li {\n  margin-bottom: 4px;\n  color: red;\n}\n\nlotto-list {\n  display: flex;\n}\n\nlotto-list ul.lotto-list,\nlotto-list .lotto-images {\n  max-height: 400px;\n  overflow-y: scroll;\n}\n\nlotto-list > .lotto-list-container {\n  flex: 1;\n}\n\nlotto-list .lotto-images img {\n  margin-right: 8px;\n}\n\nlotto-list > .lotto-list-container label {\n  display: block;\n  margin-bottom: 8px;\n}\n\nlotto-list > .toggle-container {\n}\n\nlotto-list lotto-item {\n  display: flex;\n  align-items: center;\n}\n\nlotto-list lotto-item img {\n  margin-right: 8px;\n}\n\nlotto-list lotto-item span.lotto-ball {\n  width: 26px;\n  height: 20px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding-top: 5px;\n  border-radius: 17px;\n  margin-right: 6px;\n  color: white;\n  box-shadow: 0 1px 4px -1px #000000d6;\n}\n\nlotto-list lotto-item span.lotto-ball.orange {\n  background-color: #F18E04;\n}\n\nlotto-list lotto-item span.lotto-ball.blue {\n  background-color: #1B5FC7;\n}\n\nlotto-list lotto-item span.lotto-ball.red {\n  background-color: #B93920;\n}\n\nlotto-list lotto-item span.lotto-ball.gray {\n  background-color: #525960;\n}\n\nlotto-list lotto-item span.lotto-ball.green {\n  background-color: #1FA816;\n}\n\nlotto-list lotto-item span.rank {\n  font-size: 16px;\n  padding-top: 4px;\n  margin-left: 10px;\n}\n\nlotto-list-toggle {\n}\n\nwinning-number-form > form {\n  display: flex;\n  flex-direction: column;\n}\n\nwinning-number-form label {\n  display: block;\n  margin-bottom: 8px;\n}\n\nwinning-number-form input.form-control {\n  width: 34px;\n  height: 36px;\n  padding: 0;\n  margin-right: 8px;\n  text-align: center;\n}\n\nwinning-number-form .wrapper {\n  display: flex;\n  flex-wrap: wrap;\n  margin-bottom: 24px;\n}\n\nwinning-number-form fieldset {\n  flex: 1;\n}\n\nwinning-number-form fieldset:nth-child(2) {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n}\n\nwinning-number-form .error-list {\n  margin-top: 20px;\n}\n\nwinning-number-form winning-number-input.duplicate-error-1 input {\n  background-color: #ff000073;\n}\n\nwinning-number-form winning-number-input.duplicate-error-2 input {\n  background-color: #ff0000ad;\n}\n\nwinning-number-form winning-number-input.duplicate-error-3 input {\n  background-color: #ff0000;\n}\n\nwinning-number-form winning-number-input.invalid-range-error input {\n  background-color: orange;\n}\n\n\nstatistics-modal .modal-dialog {\n  width: 350px;\n  height: 500px;\n  margin: 100px auto 0 auto;\n}\n\nstatistics-modal table {\n  border-collapse: collapse;\n  width: 100%;\n  margin-bottom: 16px;\n}\n\nstatistics-modal table th,\nstatistics-modal table td {\n  border-top: 1px solid #DCDCDC;\n  border-bottom: 1px solid #DCDCDC;\n  padding: 8px 0;\n  font-weight: 600;\n  font-size: 15px;\n  line-height: 24px;\n  letter-spacing: 0.5px;\n}\n\nstatistics-modal table td {\n  font-weight: 400;\n}\n\nstatistics-modal .earnings-rate {\n  font-weight: 600;\n  font-size: 15px;\n  line-height: 24px;\n  text-align: center;\n  letter-spacing: 0.5px;\n  margin-bottom: 32px;\n}\n\nstatistics-modal .btn-reset {\n  width: 152px;\n}\n", "",{"version":3,"sources":["webpack://./src/css/index.css"],"names":[],"mappings":"AAUA;EACE,WAAW;EACX,YAAY;EACZ,iCAAiC;AACnC;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,YAAY;EACZ,mBAAmB;EACnB,uBAAuB;EACvB,iCAAiC;EACjC,kBAAkB;EAClB,uBAAuB;AACzB;;AAEA;EACE,WAAW;AACb;;AAEA;EACE,SAAS;EACT,gBAAgB;EAChB,UAAU;AACZ;;AAEA;EACE,cAAc;EACd,kBAAkB;EAClB,eAAe;EACf,iBAAiB;EACjB,qBAAqB;AACvB;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,kBAAkB;EAClB,UAAU;AACZ;;AAEA;EACE,aAAa;AACf;;AAEA;;EAEE,iBAAiB;EACjB,kBAAkB;AACpB;;AAEA;EACE,OAAO;AACT;;AAEA;EACE,iBAAiB;AACnB;;AAEA;EACE,cAAc;EACd,kBAAkB;AACpB;;AAEA;AACA;;AAEA;EACE,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,iBAAiB;AACnB;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB;EAChB,mBAAmB;EACnB,iBAAiB;EACjB,YAAY;EACZ,oCAAoC;AACtC;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,eAAe;EACf,gBAAgB;EAChB,iBAAiB;AACnB;;AAEA;AACA;;AAEA;EACE,aAAa;EACb,sBAAsB;AACxB;;AAEA;EACE,cAAc;EACd,kBAAkB;AACpB;;AAEA;EACE,WAAW;EACX,YAAY;EACZ,UAAU;EACV,iBAAiB;EACjB,kBAAkB;AACpB;;AAEA;EACE,aAAa;EACb,eAAe;EACf,mBAAmB;AACrB;;AAEA;EACE,OAAO;AACT;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,qBAAqB;AACvB;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,2BAA2B;AAC7B;;AAEA;EACE,2BAA2B;AAC7B;;AAEA;EACE,yBAAyB;AAC3B;;AAEA;EACE,wBAAwB;AAC1B;;;AAGA;EACE,YAAY;EACZ,aAAa;EACb,yBAAyB;AAC3B;;AAEA;EACE,yBAAyB;EACzB,WAAW;EACX,mBAAmB;AACrB;;AAEA;;EAEE,6BAA6B;EAC7B,gCAAgC;EAChC,cAAc;EACd,gBAAgB;EAChB,eAAe;EACf,iBAAiB;EACjB,qBAAqB;AACvB;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,gBAAgB;EAChB,eAAe;EACf,iBAAiB;EACjB,kBAAkB;EAClB,qBAAqB;EACrB,mBAAmB;AACrB;;AAEA;EACE,YAAY;AACd","sourcesContent":["@import './normalize.css';\n@import './root.css';\n@import './spacing.css';\n@import './btn.css';\n@import './flex.css';\n@import './form.css';\n@import './typhography.css';\n@import './switch.css';\n@import './modal.css';\n\nbody {\n  width: 100%;\n  height: 100%;\n  background-color: var(--gray-500);\n}\n\n#app {\n  display: flex;\n  flex-direction: column;\n  width: 414px;\n  margin: 56px auto 0;\n  padding: 52px 16px 39px;\n  border: 1px solid var(--gray-700);\n  border-radius: 4px;\n  background-color: white;\n}\n\n.w-100 {\n  width: 100%;\n}\n\nul {\n  margin: 0;\n  list-style: none;\n  padding: 0;\n}\n\nlabel {\n  display: block;\n  margin-bottom: 8px;\n  font-size: 15px;\n  line-height: 24px;\n  letter-spacing: 0.5px;\n}\n\n.error-list {\n  font-size: 14px;\n}\n\n.error-list li {\n  margin-bottom: 4px;\n  color: red;\n}\n\nlotto-list {\n  display: flex;\n}\n\nlotto-list ul.lotto-list,\nlotto-list .lotto-images {\n  max-height: 400px;\n  overflow-y: scroll;\n}\n\nlotto-list > .lotto-list-container {\n  flex: 1;\n}\n\nlotto-list .lotto-images img {\n  margin-right: 8px;\n}\n\nlotto-list > .lotto-list-container label {\n  display: block;\n  margin-bottom: 8px;\n}\n\nlotto-list > .toggle-container {\n}\n\nlotto-list lotto-item {\n  display: flex;\n  align-items: center;\n}\n\nlotto-list lotto-item img {\n  margin-right: 8px;\n}\n\nlotto-list lotto-item span.lotto-ball {\n  width: 26px;\n  height: 20px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding-top: 5px;\n  border-radius: 17px;\n  margin-right: 6px;\n  color: white;\n  box-shadow: 0 1px 4px -1px #000000d6;\n}\n\nlotto-list lotto-item span.lotto-ball.orange {\n  background-color: #F18E04;\n}\n\nlotto-list lotto-item span.lotto-ball.blue {\n  background-color: #1B5FC7;\n}\n\nlotto-list lotto-item span.lotto-ball.red {\n  background-color: #B93920;\n}\n\nlotto-list lotto-item span.lotto-ball.gray {\n  background-color: #525960;\n}\n\nlotto-list lotto-item span.lotto-ball.green {\n  background-color: #1FA816;\n}\n\nlotto-list lotto-item span.rank {\n  font-size: 16px;\n  padding-top: 4px;\n  margin-left: 10px;\n}\n\nlotto-list-toggle {\n}\n\nwinning-number-form > form {\n  display: flex;\n  flex-direction: column;\n}\n\nwinning-number-form label {\n  display: block;\n  margin-bottom: 8px;\n}\n\nwinning-number-form input.form-control {\n  width: 34px;\n  height: 36px;\n  padding: 0;\n  margin-right: 8px;\n  text-align: center;\n}\n\nwinning-number-form .wrapper {\n  display: flex;\n  flex-wrap: wrap;\n  margin-bottom: 24px;\n}\n\nwinning-number-form fieldset {\n  flex: 1;\n}\n\nwinning-number-form fieldset:nth-child(2) {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n}\n\nwinning-number-form .error-list {\n  margin-top: 20px;\n}\n\nwinning-number-form winning-number-input.duplicate-error-1 input {\n  background-color: #ff000073;\n}\n\nwinning-number-form winning-number-input.duplicate-error-2 input {\n  background-color: #ff0000ad;\n}\n\nwinning-number-form winning-number-input.duplicate-error-3 input {\n  background-color: #ff0000;\n}\n\nwinning-number-form winning-number-input.invalid-range-error input {\n  background-color: orange;\n}\n\n\nstatistics-modal .modal-dialog {\n  width: 350px;\n  height: 500px;\n  margin: 100px auto 0 auto;\n}\n\nstatistics-modal table {\n  border-collapse: collapse;\n  width: 100%;\n  margin-bottom: 16px;\n}\n\nstatistics-modal table th,\nstatistics-modal table td {\n  border-top: 1px solid #DCDCDC;\n  border-bottom: 1px solid #DCDCDC;\n  padding: 8px 0;\n  font-weight: 600;\n  font-size: 15px;\n  line-height: 24px;\n  letter-spacing: 0.5px;\n}\n\nstatistics-modal table td {\n  font-weight: 400;\n}\n\nstatistics-modal .earnings-rate {\n  font-weight: 600;\n  font-size: 15px;\n  line-height: 24px;\n  text-align: center;\n  letter-spacing: 0.5px;\n  margin-bottom: 32px;\n}\n\nstatistics-modal .btn-reset {\n  width: 152px;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
