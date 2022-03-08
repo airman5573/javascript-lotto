@@ -657,24 +657,27 @@ var StatisticsModal = /*#__PURE__*/function (_Component) {
   var _super = _createSuper(StatisticsModal);
 
   function StatisticsModal() {
+    var _this;
+
     _classCallCheck(this, StatisticsModal);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this);
+    _this.handleKeyupEvent = _this.handleKeyupEvent.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(StatisticsModal, [{
     key: "connectedCallback",
     value: function connectedCallback() {
-      var _this = this;
-
       _get(_getPrototypeOf(StatisticsModal.prototype), "connectedCallback", this).call(this); // modal close when press esc key
 
 
-      document.addEventListener('keyup', function (event) {
-        if (event.key !== 'Escape') return;
-
-        _this.closeModal();
-      });
+      document.addEventListener('keyup', this.handleKeyupEvent);
+    }
+  }, {
+    key: "disconnectedCallback",
+    value: function disconnectedCallback() {
+      document.removeEventListener('keyup', this.handleKeyupEvent);
     } // eslint-disable-next-line max-lines-per-function
 
   }, {
@@ -727,6 +730,12 @@ var StatisticsModal = /*#__PURE__*/function (_Component) {
     value: function closeModal() {
       document.querySelector('body').classList.remove('modal-open');
       _flux_store__WEBPACK_IMPORTED_MODULE_4__["default"].instance.dispatch((0,_flux_actionCreator__WEBPACK_IMPORTED_MODULE_1__["default"])(_constants__WEBPACK_IMPORTED_MODULE_0__.ACTION.TOGGLE_STATISTICS_MODAL, false));
+    }
+  }, {
+    key: "handleKeyupEvent",
+    value: function handleKeyupEvent(event) {
+      if (event.key !== 'Escape') return;
+      this.closeModal();
     }
   }, {
     key: "reset",
@@ -922,28 +931,31 @@ var WinningNumberForm = /*#__PURE__*/function (_Component) {
         _this.handleKeyupEvent(target, key);
       });
       this.addEvent('keydown', 'winning-number-form', function (event) {
-        var key = event.key;
+        var path = event.path,
+            key = event.key;
+        var target = path[1];
+        if (target.tagName.toLowerCase() !== 'winning-number-input') return;
 
-        _this.handleKeydownEvent(key);
+        if (key === 'Backspace') {
+          _this.handleBackspace(target);
+        }
+
+        if (key === 'Enter') {
+          _this.showModalOrSubmitWinningNumbers();
+        }
       });
       this.addEvent('click', 'winning-number-form', function (event) {
         var path = event.path;
         var target = path[1];
         if (target.tagName.toLowerCase() !== 'winning-number-input') return;
-        var order = target.order;
 
-        var winningNumberList = _this.$inputs.map(function (input) {
-          return input.order === order ? _constants__WEBPACK_IMPORTED_MODULE_0__.WINNING_NUM_PLACEHOLDER : input.valueAsNumber;
-        });
-
-        _this.submitLottoNumbers(winningNumberList);
+        _this.handleClickInput(target);
       });
       this.addEvent('click', 'winning-number-form', function (_ref5) {
         var target = _ref5.target;
         if (target.tagName.toLowerCase() !== 'button') return;
 
-        _this.handleEnter(); // 버튼 누른거는 Enter친것과 같은 행위이다
-
+        _this.showModalOrSubmitWinningNumbers();
       });
     }
   }, {
@@ -951,17 +963,7 @@ var WinningNumberForm = /*#__PURE__*/function (_Component) {
     value: function handleKeyupEvent(target, key) {
       var order = target.order,
           length = target.length;
-      if (key === 'Enter') return;
-
-      if (length === 0 && order > 0 && key === 'Backspace') {
-        var winningNumberList = this.$inputs.map(function (input) {
-          if (input.order === target.order - 1) return _constants__WEBPACK_IMPORTED_MODULE_0__.WINNING_NUM_PLACEHOLDER; // 방금 지운 input의 이전 input도 지워준다
-
-          return input.valueAsNumber;
-        });
-        this.submitLottoNumbers(winningNumberList);
-        return;
-      }
+      if (key === 'Enter' || key === 'Backspace') return;
 
       if (target.isFull() && order < _constants__WEBPACK_IMPORTED_MODULE_0__.LOTTO.COUNT) {
         var nextInput = this.$inputs[order + 1];
@@ -969,23 +971,43 @@ var WinningNumberForm = /*#__PURE__*/function (_Component) {
       }
     }
   }, {
-    key: "handleKeydownEvent",
-    value: function handleKeydownEvent(key) {
-      if (key !== 'Enter') return;
-      this.handleEnter();
+    key: "handleClickInput",
+    value: function handleClickInput(target) {
+      var order = target.order;
+      var winningNumberList = this.$inputs.map(function (input) {
+        return input.order === order ? _constants__WEBPACK_IMPORTED_MODULE_0__.WINNING_NUM_PLACEHOLDER : input.valueAsNumber;
+      });
+      this.submitLottoNumbers(winningNumberList);
     }
   }, {
-    key: "handleEnter",
-    value: function handleEnter() {
+    key: "handleBackspace",
+    value: function handleBackspace(target) {
+      var length = target.length,
+          order = target.order;
+      if (length > 0 || order === 0) return;
+      var winningNumberList = this.$inputs.map(function (input) {
+        if (input.order === target.order - 1) return _constants__WEBPACK_IMPORTED_MODULE_0__.WINNING_NUM_PLACEHOLDER; // 방금 지운 input의 이전 input도 지워준다
+
+        return input.valueAsNumber;
+      });
+      this.submitLottoNumbers(winningNumberList);
+    }
+  }, {
+    key: "showModalOrSubmitWinningNumbers",
+    value: function showModalOrSubmitWinningNumbers() {
       var winningNumberList = this.$inputs.map(function (input) {
         return input.valueAsNumber;
       });
+      var hasError = (0,_validation_validators__WEBPACK_IMPORTED_MODULE_5__.validateWinningNumberList)(winningNumberList).some(function (result) {
+        return result.hasError;
+      });
 
-      try {
-        this.showStatisticsModal(winningNumberList);
-      } catch (e) {
+      if (hasError) {
         this.submitLottoNumbers(winningNumberList);
+        return;
       }
+
+      this.showStatisticsModal(winningNumberList);
     }
   }, {
     key: "handleMouseEnterOnButton",
@@ -1010,16 +1032,7 @@ var WinningNumberForm = /*#__PURE__*/function (_Component) {
     }
   }, {
     key: "showStatisticsModal",
-    value: function showStatisticsModal(winningNumberList) {
-      var hasError = (0,_validation_validators__WEBPACK_IMPORTED_MODULE_5__.validateWinningNumberList)(winningNumberList).some(function (result) {
-        return result.hasError;
-      });
-
-      if (hasError) {
-        throw new _validation_validation_error__WEBPACK_IMPORTED_MODULE_6__["default"](errorMessage);
-      }
-
-      this.submitLottoNumbers(winningNumberList);
+    value: function showStatisticsModal() {
       _flux_store__WEBPACK_IMPORTED_MODULE_3__["default"].instance.dispatch((0,_flux_actionCreator__WEBPACK_IMPORTED_MODULE_1__["default"])(_constants__WEBPACK_IMPORTED_MODULE_0__.ACTION.TOGGLE_STATISTICS_MODAL, true));
     }
   }, {
@@ -1033,7 +1046,8 @@ var WinningNumberForm = /*#__PURE__*/function (_Component) {
 
       if (lottoList.length > 0) {
         this.innerHTML = this.template(winningNumbers);
-        this.$inputs = _toConsumableArray(this.querySelectorAll('winning-number-input')); // addEvent가 작동하지 않아서 이렇게 event handler를 property로 직접 넣어준다.
+        this.$inputs = _toConsumableArray(this.querySelectorAll('winning-number-input')); // mouseenter는 버블링이 발생하지 않아, delegation패턴을 적용할 수 없기 떄문에 event handler를 property로 직접 넣어준다.
+        // setEvent에 addEventListener로 작성하지 않은 이유는 setEvent함수가 호출되는 시점에서 이 btn-wrapper가 DOM에 없을수도 있기 때문이다.
 
         this.$btnWrapper = this.querySelector('.btn-wrapper');
         this.$btnWrapper.onmouseenter = this.handleMouseEnterOnButton.bind(this);
